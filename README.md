@@ -18,4 +18,4 @@ The code contains 2 main python files :
 - [Main](https://github.com/Oumaima-Hajji/city-weather/blob/main/main.py) : For execution.
 - [Utils](https://github.com/Oumaima-Hajji/city-weather/blob/main/utils.py) : Contains all methods used.
 
-The code takes the **city**, **country** and **phone number** of the subscribers listed on the Google-sheet dataset and sends them all an SMS text with a detailed description of today's weather.
+The code takes the **city**, **country** and **phone number** of the subscribers listed on the Google-sheet dataset and sends them all an SMS text with a detailed description of that same day's weather.
