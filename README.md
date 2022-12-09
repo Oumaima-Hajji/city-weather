@@ -1,7 +1,7 @@
 # Sending a detailed weather notification sms.
 
 
-An application that sends an sms containing the weather's description to the users based on their city and country.
+An application that sends an sms containing the weather's status to the users based on their city and country.
 
 
 The aim of this project is to put into practice multiple ways to use APIs and also to connect them with each othe in order to get the exact needed information.
@@ -18,4 +18,7 @@ The code contains 2 main python files :
 - [Main](https://github.com/Oumaima-Hajji/city-weather/blob/main/main.py) : For execution.
 - [Utils](https://github.com/Oumaima-Hajji/city-weather/blob/main/utils.py) : Contains all methods used.
 
-The code takes the **city**, **country** and **phone number** of the subscribers listed on the Google-sheet dataset and sends them all an SMS text with a detailed description of that same day's weather.
+The code takes the **city**, **country** and **phone number** of the subscribers listed on the Google-sheet dataset and sends them all an SMS text with a detailed status of that same day's weather.
+
+
+![Alt text](.drafts/WeatherSMS_Daig.png?raw=true "Diagram summary of the project")
