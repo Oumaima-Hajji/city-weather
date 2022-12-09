@@ -1,21 +1,21 @@
-# Get a city's weather information using a weather forcast API and a forward geocoding API
-
-## Project description
-
-This project gives us a city's temperature and rain rate at the same day by only giving the city's name and corresponding coutry. 
+# Sending a detailed weather notification sms.
 
 
-The project uses two functions.
+An applicaion that sends an sms containing the weather's description to the users based on their city and country.
 
 
+The aim of this project is to put into practice multiple ways to use APIs and also to connect them with each othe in order to get the exact needed information.
 
-The main function (cityweather) gives the weather information of a city, the date of the day, the hour, the temperature and the rain rate. It only needs the city's name and country. 
+The code features the implementation of 4 different APIs :
 
-It's able to do so by using the other function (cityapi) that takes the city name and country and returns the latitude and langitude of the city. This information is then used by the main function to apoint the city.
-
-
-- "cityweather" gives the city's eather information by using [Open-Meteo](https://open-meteo.com/en/docs#latitude=34.96&longitude=-5.44&hourly=pressure_msl,visibility), a weather API. This API let's you select a city but instead of using the name of the city, it uses the city's latitude and longitude.
-
-- "cityapi" gives the city's latitude and longitude by giving it the city's name and country by using [API Ninjas](https://api-ninjas.com/api/geocoding), a geocoding API that enables you to convert any city from any country to latitude and longitude coordinates.
+- [Open-Meteo](https://open-meteo.com/en/docs#latitude=48.85&longitude=2.35&hourly=temperature_2m,relativehumidity_2m,precipitation,rain,snowfall,snow_depth,weathercode,visibility,windspeed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_hours,windspeed_10m_max,windgusts_10m_max,winddirection_10m_dominant&timezone=auto) : A Weather Forecast API that gives the weather's detailed variables based on latitude and longitude.
+- [Ninjas API](https://api-ninjas.com/api/geocoding): A geocoding API that returns a list of city names and coordinates (latitude/longitude) that match a given city name.
+- [Textbelt API](https://docs.textbelt.com#testing-this-api): An SMS API to send SMS texts.
+- [Google spreadsheet API](https://developers.google.com/sheets/api) : A google API that manages to read a spreadsheet dataset and use its values.
 
 
+The code contains 2 main python files :
+- [Main](https://github.com/Oumaima-Hajji/city-weather/blob/main/main.py) : For execution.
+- [Utils](https://github.com/Oumaima-Hajji/city-weather/blob/main/utils.py) : Contains all methods used.
+
+The code takes the **city**, **country** and **phone number** of the subscribers listed on the Google-sheet dataset and sends them all an SMS text with a detailed description of today's weather.
