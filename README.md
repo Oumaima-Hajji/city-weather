@@ -1,7 +1,7 @@
 # Sending a detailed weather notification sms.
 
 
-An applicaion that sends an sms containing the weather's description to the users based on their city and country.
+An application that sends an sms containing the weather's description to the users based on their city and country.
 
 
 The aim of this project is to put into practice multiple ways to use APIs and also to connect them with each othe in order to get the exact needed information.
