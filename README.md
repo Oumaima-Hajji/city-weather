@@ -21,4 +21,4 @@ The code contains 2 main python files :
 The code takes the **city**, **country** and **phone number** of the subscribers listed on the Google-sheet dataset and sends them all an SMS text with a detailed status of that same day's weather.
 
 
-<img src="WeatherSMS_Daig.png" alt="Alt text" title="Optional title">
+![My Image](WeatherSMS_Daig.png)
