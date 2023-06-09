@@ -8,7 +8,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
-
+import json
 import requests
 import emoji
 from code_dict import code_dict
@@ -18,7 +18,7 @@ from code_dict import code_dict
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 # The ID and range of a sample spreadsheet.
-SAMPLE_SPREADSHEET_ID = 'SAMPLE_SPREADSHEET_ID'
+SAMPLE_SPREADSHEET_ID = '12Iy5vNJyVi9aG3TokPRnPfISCNffI4Ig1_7gax5Mavw'
 SAMPLE_RANGE_NAME = 'people_records!A1:E10'
 
 
@@ -30,11 +30,11 @@ def get_lat_long(city: str, country: str):
     """
     response = requests.get(
         url=f"https://api.api-ninjas.com/v1/geocoding?city={city}&country={country}",
-        headers={"X-Api-Key": "NinjasAPI Key"},
+        headers={"X-Api-Key": "1c0/d/JhFTx7iJPB6vN+NA==Eh281hVfSYXLVh7H"},
     )
 
     data_city = response.json()
-
+ 
     return [round(data_city[0]["latitude"], 2), round(data_city[0]["longitude"], 2)]
 
 
@@ -137,7 +137,8 @@ def read_google_sheet():
     # created automatically when the authorization flow completes for the first
     # time.
     if os.path.exists('secrets/token.json'):
-        creds = Credentials.from_authorized_user_file('secrets/token.json', SCOPES)
+        creds = Credentials.from_authorized_user_file(
+            'secrets/token.json', SCOPES)
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -192,11 +193,28 @@ def send_message_people():
     '''
     people_record, total_people = read_google_sheet(), len(
         read_google_sheet()['name'])
-
+    #print(people_record , total_people)
     for item in range(total_people):
         name, city,  country, call_sign, phone_number = people_record['name'][item], people_record['city'][
             item], people_record['country'][item], people_record['call_sign'][item], people_record['phone_number'][item]
 
         phone = '+' + call_sign + ' ' + phone_number
+        phone = phone.replace(" ", "")
 
-        weather_notifier(city=city, country=country, phone_number=phone)
+        return [city, country ]
+    
+        #weather_notifier(city=city, country=country, phone_number=phone)
+        
+
+
+
+
+
+
+
+def daily_payload():
+    list_coords = send_message_people()
+    city = list_coords[0]
+    country = list_coords[1]
+    data = get_city_weather(city=city, country=country)
+    return data
